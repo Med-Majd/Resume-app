@@ -1,0 +1,63 @@
+<div class="header">
+  <h2 mat-dialog-title>
+    <strong>{{ resume.user.firstName }} {{ resume.user.lastName }}</strong>
+    <p>{{ resume.role }}</p>
+  </h2>
+  <mat-chip [ngClass]="resume.status.color">
+    {{ resume.status.label }}
+  </mat-chip>
+</div>
+<mat-dialog-content>
+  <div class="contact">
+    <p>
+      <mat-icon>contact_phone</mat-icon><span> {{ resume.user.phone }}</span>
+    </p>
+    <p>
+      <mat-icon>contact_mail</mat-icon><span> {{ resume.user.email }}</span>
+    </p>
+  </div>
+  <div class="infos">
+    <p>
+      <strong>Nombre d'années d'expérience :</strong>
+      {{ resume.experiencesYears }}
+    </p>
+    <p><strong>TJM :</strong> {{ resume.dailyRate }}</p>
+    <p>
+      <strong>date de disponibilité :</strong>
+      {{ resume.availabilityDate | availability }}
+    </p>
+  </div>
+  <div class="experiences">
+    <h3>Expériences</h3>
+    @for (experience of resume.experiences; track experience) {
+    <div>
+      <p><strong>Poste :</strong> {{ experience.title }}</p>
+      <p>
+        <strong>{{ experience.company }}</strong>
+        |
+        <i>{{ experience.location }}</i>
+      </p>
+    </div>
+    <p><strong>Description :</strong> {{ experience.description }}</p>
+    <hr />
+    }
+  </div>
+  <div class="education">
+    <h3>Formations</h3>
+    @for (education of resume.education; track education) {
+    <div>
+      <p><strong>Diplôme :</strong> {{ education.level }}</p>
+      <p>
+        <strong>{{ education.organization }}</strong>
+        |
+        <i>{{ education.location }}</i>
+      </p>
+    </div>
+    <p>{{ education.title }}</p>
+    <hr />
+    }
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

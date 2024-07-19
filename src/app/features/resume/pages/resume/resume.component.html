@@ -1,0 +1,5 @@
+<div class="resume-container">
+  @if (resumes$ | async; as resumes) {
+  <app-list [resumes]="resumes" (resumeId)="openDialog($event)"></app-list>
+  }
+</div>

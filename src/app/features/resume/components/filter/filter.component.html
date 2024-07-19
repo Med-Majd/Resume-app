@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Rechercher par nom ou rôle</mat-label>
+    <input matInput formControlName="lastNameOrRole" type="text" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Statut</mat-label>
+    <mat-select formControlName="status">
+      <mat-option></mat-option>
+      @for (status of statuses; track status) {
+      <mat-option [value]="status.value">
+        {{ status.label }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</form>

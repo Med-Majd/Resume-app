@@ -1,0 +1,11 @@
+.resume-container {
+  overflow: auto;
+  max-width: 100%;
+  padding: 5rem 12rem 1rem 12rem;
+}
+
+::ng-deep mat-spinner {
+  position: absolute !important;
+  right: 50%;
+  top: 40%;
+}
