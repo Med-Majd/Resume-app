@@ -11,7 +11,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { Resume } from '../../interfaces';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { AvailabilityPipe } from '../../pipes';
+import { AvailabilityPipe } from '../../../../shared/pipes';
 
 @Component({
   selector: 'app-details',
