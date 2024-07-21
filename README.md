@@ -1,27 +1,46 @@
-# ResumeApp
+# Consultant Resumes App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
+Ce projet est une application Angular qui permet aux utilisateurs de voir une liste de CV de consultants, de les filtrer et de consulter des informations détaillées sur chaque CV.
 
-## Development server
+## Table des Matières
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Fonctionnalités](#fonctionnalités)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
+- [Exécution des Tests](#exécution-des-tests)
 
-## Code scaffolding
+## Fonctionnalités
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Voir une liste de CV de consultants
+- Filtrer les CV selon des critères
+- Voir des informations détaillées sur chaque CV
 
-## Build
+## Technologies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Angular**: v18.1.0
+- **NgRx**: v18.1.0 pour la gestion d'état
+- **RxJS**: v7.8.0 pour la programmation réactive
+- **Karma**: pour les tests unitaires
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Installer les dépendances :
 
-## Running end-to-end tests
+```sh
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Utilisation
 
-## Further help
+Pour démarrer le projet, exécutez la commande suivante :
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```sh
+npm start
+```
+
+Pour exécuter les tests unitaires du projet, utilisez la commande suivante :
+
+```sh
+npm test
+```
