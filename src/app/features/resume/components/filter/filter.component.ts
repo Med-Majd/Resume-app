@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -7,6 +14,7 @@ import { STATUSES, StatusFilter } from '../../constants';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FilterForm } from '../../interfaces';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-filter',
@@ -22,16 +30,18 @@ import { FilterForm } from '../../interfaces';
     MatOptionModule,
   ],
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent implements OnInit, OnDestroy {
   private formBuilder = inject(FormBuilder);
   @Output() filterValues: EventEmitter<FilterForm> =
     new EventEmitter<FilterForm>();
   statuses: StatusFilter[] = STATUSES;
   form!: FormGroup;
 
+  subscription!: Subscription;
+
   ngOnInit() {
     this.initForm();
-    this.detectChange();
+    this.detectChanges();
   }
 
   /**
@@ -47,13 +57,21 @@ export class FilterComponent implements OnInit {
   /**
    * Emit filters values after any change
    */
-  detectChange() {
-    this.form.valueChanges.subscribe((value: FilterForm) => {
-      const filter: FilterForm = {
-        ...value,
-        lastNameOrRole: value.lastNameOrRole?.trim().toLowerCase(),
-      };
-      this.filterValues.emit(filter);
-    });
+  detectChanges() {
+    this.subscription = this.form.valueChanges.subscribe(
+      (value: FilterForm) => {
+        const filter: FilterForm = {
+          ...value,
+          lastNameOrRole: value.lastNameOrRole?.trim().toLowerCase(),
+        };
+        this.filterValues.emit(filter);
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

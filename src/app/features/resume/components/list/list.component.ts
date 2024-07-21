@@ -10,7 +10,7 @@ import {
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { FilterForm, Resume } from '../../interfaces';
-import { AvailabilityPipe } from '../../pipes';
+import { AvailabilityPipe } from '../../../../shared/pipes';
 import { FilterComponent } from '../filter/filter.component';
 
 @Component({
@@ -28,13 +28,14 @@ import { FilterComponent } from '../filter/filter.component';
 })
 export class ListComponent implements OnInit {
   @Input()
-  set resumes(resumes: Resume[]) {
-    this.dataSource = new MatTableDataSource<Resume>(resumes);
+  set setResumes(resumes: Resume[]) {
+    this.dataSource.data = resumes;
   }
-  @Output() resumeId = new EventEmitter<Resume>();
+  @Output() resume = new EventEmitter<Resume>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  dataSource!: MatTableDataSource<Resume, MatPaginator>;
+  dataSource: MatTableDataSource<Resume, MatPaginator> =
+    new MatTableDataSource<Resume>();
   columns = [
     {
       columnDef: 'lastName',
@@ -89,7 +90,7 @@ export class ListComponent implements OnInit {
    * @param resume contains resume's data
    */
   displayResume(resume: Resume): void {
-    this.resumeId.emit(resume);
+    this.resume.emit(resume);
   }
 
   /**
