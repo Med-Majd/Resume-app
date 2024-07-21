@@ -6,8 +6,8 @@ export interface Resume {
   availabilityDate: string;
   dailyRate: number;
   user: User;
-  experiences: Array<Experience>;
-  education: Array<Education>;
+  experiences: Experience[];
+  education: Education[];
 }
 
 export interface Status {

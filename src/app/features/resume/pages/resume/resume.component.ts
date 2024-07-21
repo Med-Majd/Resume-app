@@ -1,18 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ResumeService } from '../../services/resume.service';
-import { CommonModule, NgTemplateOutlet } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { ResumeApiActions, selectVisibleResumes } from '../../store';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Resume } from '../../interfaces';
 import { AppState } from '../../../../core/store';
-import {
-  DetailsComponent,
-  FilterComponent,
-  ListComponent,
-} from '../../components';
+import { DetailsComponent, ListComponent } from '../../components';
 
 @Component({
   selector: 'app-resume',

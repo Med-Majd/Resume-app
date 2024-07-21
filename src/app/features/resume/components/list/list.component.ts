@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
@@ -26,12 +27,12 @@ import { FilterComponent } from '../filter/filter.component';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, AfterViewInit {
   @Input()
   set setResumes(resumes: Resume[]) {
     this.dataSource.data = resumes;
   }
-  @Output() resume = new EventEmitter<Resume>();
+  @Output() resumeData = new EventEmitter<Resume>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   dataSource: MatTableDataSource<Resume, MatPaginator> =
@@ -90,7 +91,7 @@ export class ListComponent implements OnInit {
    * @param resume contains resume's data
    */
   displayResume(resume: Resume): void {
-    this.resume.emit(resume);
+    this.resumeData.emit(resume);
   }
 
   /**

@@ -16,7 +16,7 @@ export class ResumeService {
    * @returns observable contains an array of resumes
    */
   getAllResumes(): Observable<Resume[]> {
-    const endPoint: string = 'all-resumes';
+    const endPoint = 'all-resumes';
     return this.http.get<Resume[]>(`${this.baseUrl}/${endPoint}`);
   }
 
@@ -25,7 +25,7 @@ export class ResumeService {
    * @returns observable contains the IDs of the resumes
    */
   getVisibleResume(): Observable<{ id: number }[]> {
-    const endPoint: string = 'visible-resumes';
+    const endPoint = 'visible-resumes';
     return this.http.get<Resume[]>(`${this.baseUrl}/${endPoint}`);
   }
 }

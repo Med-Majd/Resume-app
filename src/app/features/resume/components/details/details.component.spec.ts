@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DetailsComponent } from './details.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { resumesMock } from '../../../../shared/mocks';
-import { Resume } from '../../interfaces';
 
 describe('DetailsComponent', () => {
   let component: DetailsComponent;
