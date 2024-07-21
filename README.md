@@ -8,7 +8,6 @@ Ce projet est une application Angular qui permet aux utilisateurs de voir une li
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
-- [Exécution des Tests](#exécution-des-tests)
 
 ## Fonctionnalités
 
@@ -38,6 +37,8 @@ Pour démarrer le projet, exécutez la commande suivante :
 ```sh
 npm start
 ```
+
+## Utilisation
 
 Pour exécuter les tests unitaires du projet, utilisez la commande suivante :
 
